@@ -17,8 +17,8 @@ import { Popover } from "@radix-ui/react-popover";
 import {
   PopoverContent,
   PopoverTrigger,
-} from "@/components/tailwind/ui/popover";
-import { Button } from "@/components/tailwind/ui/button";
+} from "../ui/popover";
+import { Button } from "../ui/button";
 
 export type SelectorItem = {
   name: string;

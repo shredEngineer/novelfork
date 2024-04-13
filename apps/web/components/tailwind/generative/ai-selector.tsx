@@ -1,6 +1,6 @@
 "use client";
 
-import { Command, CommandInput } from "@/components/tailwind/ui/command";
+import { Command, CommandInput } from "../ui/command";
 
 import { useCompletion } from "ai/react";
 import { toast } from "sonner";

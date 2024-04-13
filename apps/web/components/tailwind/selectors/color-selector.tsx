@@ -6,8 +6,8 @@ import {
   PopoverTrigger,
   Popover,
   PopoverContent,
-} from "@/components/tailwind/ui/popover";
-import { Button } from "@/components/tailwind/ui/button";
+} from "../ui/popover";
+import { Button } from "../ui/button";
 export interface BubbleColorMenuItem {
   name: string;
   color: string;

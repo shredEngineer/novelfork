@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils";
+import { cn } from "../../../lib/utils";
 import { EditorBubbleItem, useEditor } from "novel";
 import {
   BoldIcon,
@@ -8,7 +8,7 @@ import {
   CodeIcon,
 } from "lucide-react";
 import type { SelectorItem } from "./node-selector";
-import { Button } from "@/components/tailwind/ui/button";
+import { Button } from "../ui/button";
 
 export const TextButtons = () => {
   const { editor } = useEditor();

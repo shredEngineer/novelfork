@@ -1,5 +1,5 @@
 "use client";
-import { defaultEditorContent } from "@/lib/content";
+import { defaultEditorContent } from "../../lib/content";
 import React, { useEffect, useState } from "react";
 import { useDebouncedCallback } from "use-debounce";
 import {
