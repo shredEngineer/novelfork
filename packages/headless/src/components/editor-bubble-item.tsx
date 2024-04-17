@@ -5,25 +5,25 @@ import type { Editor } from "@tiptap/react";
 import type { ComponentPropsWithoutRef, ReactNode } from "react";
 
 interface EditorBubbleItemProps {
-  readonly children: ReactNode;
-  readonly asChild?: boolean;
-  readonly onSelect?: (editor: Editor) => void;
+	readonly children: ReactNode;
+	readonly asChild?: boolean;
+	readonly onSelect?: (editor: Editor) => void;
 }
 
 export const EditorBubbleItem = forwardRef<
-  HTMLDivElement,
-  EditorBubbleItemProps & Omit<ComponentPropsWithoutRef<"div">, "onSelect">
+	HTMLDivElement,
+	EditorBubbleItemProps & Omit<ComponentPropsWithoutRef<"div">, "onSelect">
 >(({ children, asChild, onSelect, ...rest }, ref) => {
-  const { editor } = useCurrentEditor();
-  const Comp = asChild ? Slot : "div";
+	const { editor } = useCurrentEditor();
+	const Comp = asChild ? Slot : "div";
 
-  if (!editor) return null;
+	if (!editor) return null;
 
-  return (
-    <Comp ref={ref} {...rest} onClick={() => onSelect?.(editor)}>
-      {children}
-    </Comp>
-  );
+	return (
+		<Comp ref={ref} {...rest} onClick={() => onSelect?.(editor)}>
+			{children}
+		</Comp>
+	);
 });
 
 EditorBubbleItem.displayName = "EditorBubbleItem";

@@ -18,68 +18,68 @@ import GlobalDragHandle from "tiptap-extension-global-drag-handle";
 import AutoJoiner from "tiptap-extension-auto-joiner";
 
 const PlaceholderExtension = Placeholder.configure({
-  placeholder: ({ node }) => {
-    if (node.type.name === "heading") {
-      return `Heading ${node.attrs.level}`;
-    }
-    return "Press '/' for commands";
-  },
-  includeChildren: true,
+	placeholder: ({ node }) => {
+		if (node.type.name === "heading") {
+			return `Heading ${node.attrs.level}`;
+		}
+		return "Press '/' for commands";
+	},
+	includeChildren: true,
 });
 
 const simpleExtensions = [
-  TiptapUnderline,
-  TextStyle,
-  Color,
-  Highlight.configure({
-    multicolor: true,
-  }),
+	TiptapUnderline,
+	TextStyle,
+	Color,
+	Highlight.configure({
+		multicolor: true,
+	}),
 
-  Markdown.configure({
-    html: false,
-    transformCopiedText: true,
-  }),
-  CustomKeymap,
-  GlobalDragHandle.configure({
-    scrollTreshold: 0,
-  }),
-  AutoJoiner,
+	Markdown.configure({
+		html: false,
+		transformCopiedText: true,
+	}),
+	CustomKeymap,
+	GlobalDragHandle.configure({
+		scrollTreshold: 0,
+	}),
+	AutoJoiner,
 ] as const;
 
 const Horizontal = HorizontalRule.extend({
-  addInputRules() {
-    return [
-      new InputRule({
-        find: /^(?:---|—-|___\s|\*\*\*\s)$/u,
-        handler: ({ state, range }) => {
-          const attributes = {};
+	addInputRules() {
+		return [
+			new InputRule({
+				find: /^(?:---|—-|___\s|\*\*\*\s)$/u,
+				handler: ({ state, range }) => {
+					const attributes = {};
 
-          const { tr } = state;
-          const start = range.from;
-          let end = range.to;
+					const { tr } = state;
+					const start = range.from;
+					let end = range.to;
 
-          tr.insert(start - 1, this.type.create(attributes)).delete(
-            tr.mapping.map(start),
-            tr.mapping.map(end),
-          );
-        },
-      }),
-    ];
-  },
+					tr.insert(start - 1, this.type.create(attributes)).delete(
+						tr.mapping.map(start),
+						tr.mapping.map(end),
+					);
+				},
+			}),
+		];
+	},
 });
 
 export {
-  PlaceholderExtension as Placeholder,
-  simpleExtensions,
-  StarterKit,
-  Horizontal as HorizontalRule,
-  TiptapLink,
-  TiptapImage,
-  UpdatedImage,
-  TaskItem,
-  TaskList,
-  InputRule,
-  ImageResizer,
+	PlaceholderExtension as Placeholder,
+	simpleExtensions,
+	StarterKit,
+	Horizontal as HorizontalRule,
+	TiptapLink,
+	TiptapImage,
+	UpdatedImage,
+	TaskItem,
+	TaskList,
+	InputRule,
+	ImageResizer,
 };
 export * from "./ai-highlight";
 export * from "./slash-command";

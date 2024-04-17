@@ -25,32 +25,32 @@ import { Button } from "./button";
 //   },
 // ];
 const appearances = [
-  {
-    theme: "System",
-    icon: <Monitor className="h-4 w-4" />,
-  },
-  {
-    theme: "Light",
-    icon: <SunDim className="h-4 w-4" />,
-  },
-  {
-    theme: "Dark",
-    icon: <Moon className="h-4 w-4" />,
-  },
+	{
+		theme: "System",
+		icon: <Monitor className="h-4 w-4" />,
+	},
+	{
+		theme: "Light",
+		icon: <SunDim className="h-4 w-4" />,
+	},
+	{
+		theme: "Dark",
+		icon: <Moon className="h-4 w-4" />,
+	},
 ];
 export default function Menu() {
-  // const { font: currentFont, setFont } = useContext(AppContext);
-  const { theme: currentTheme, setTheme } = useTheme();
+	// const { font: currentFont, setFont } = useContext(AppContext);
+	const { theme: currentTheme, setTheme } = useTheme();
 
-  return (
-    <Popover>
-      <PopoverTrigger asChild>
-        <Button variant="ghost" size="icon">
-          <MenuIcon width={16} />
-        </Button>
-      </PopoverTrigger>
-      <PopoverContent className="w-52 p-2" align="end">
-        {/* <div className="p-2">
+	return (
+		<Popover>
+			<PopoverTrigger asChild>
+				<Button variant="ghost" size="icon">
+					<MenuIcon width={16} />
+				</Button>
+			</PopoverTrigger>
+			<PopoverContent className="w-52 p-2" align="end">
+				{/* <div className="p-2">
           <p className="p-2 text-xs font-medium text-stone-500">Font</p>
           {fonts.map(({ font, icon }) => (
             <button
@@ -70,28 +70,28 @@ export default function Menu() {
             </button>
           ))}
         </div> */}
-        <p className="p-2 text-xs font-medium text-muted-foreground">
-          Appearance
-        </p>
-        {appearances.map(({ theme, icon }) => (
-          <Button
-            variant="ghost"
-            key={theme}
-            className="flex w-full items-center justify-between rounded px-2 py-1.5 text-sm"
-            onClick={() => {
-              setTheme(theme.toLowerCase());
-            }}
-          >
-            <div className="flex items-center space-x-2">
-              <div className="rounded-sm border  p-1">{icon}</div>
-              <span>{theme}</span>
-            </div>
-            {currentTheme === theme.toLowerCase() && (
-              <Check className="h-4 w-4" />
-            )}
-          </Button>
-        ))}
-      </PopoverContent>
-    </Popover>
-  );
+				<p className="p-2 text-xs font-medium text-muted-foreground">
+					Appearance
+				</p>
+				{appearances.map(({ theme, icon }) => (
+					<Button
+						variant="ghost"
+						key={theme}
+						className="flex w-full items-center justify-between rounded px-2 py-1.5 text-sm"
+						onClick={() => {
+							setTheme(theme.toLowerCase());
+						}}
+					>
+						<div className="flex items-center space-x-2">
+							<div className="rounded-sm border  p-1">{icon}</div>
+							<span>{theme}</span>
+						</div>
+						{currentTheme === theme.toLowerCase() && (
+							<Check className="h-4 w-4" />
+						)}
+					</Button>
+				))}
+			</PopoverContent>
+		</Popover>
+	);
 }
