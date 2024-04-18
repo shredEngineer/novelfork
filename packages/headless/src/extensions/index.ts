@@ -22,7 +22,7 @@ const PlaceholderExtension = Placeholder.configure({
 		if (node.type.name === "heading") {
 			return `Heading ${node.attrs.level}`;
 		}
-		return "Press '/' for commands";
+		return "Type '/' for commands";
 	},
 	includeChildren: true,
 });
